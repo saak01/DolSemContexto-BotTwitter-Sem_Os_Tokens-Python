@@ -5,8 +5,8 @@ import tweepy
 from Elementos import *
 
 # Autenticação do Twitter
-auth = tweepy.OAuthHandler("Tokens", "Tokens")
-auth.set_access_token("Tokens", "Tokens")
+auth = tweepy.OAuthHandler("CONSUMER_KEY", "CONSUMER_SECRET")
+auth.set_access_token("ACCESS_TOKEN", "ACCESS_TOKEN_SECRET")
 #Criando o Objeto da api
 api = tweepy.API(auth)
 
@@ -64,5 +64,5 @@ def main():
                 except:
                     pass 
 
-#chamado da main
+#chamado da função main
 main()
