@@ -10,7 +10,7 @@ def cotação():
     -A função que retorna a cotação atual do dólar e muda o tipo de dado de string para float. 
     -Request faz a requisão para a url definida que entrega um json.
     
-    return: Retorna o valor da atua cotação do dólar formatado em float.
+    return: Retorna "cotação_dolar" valor da atua cotação do dólar formatado em float.
     '''
     while True:
         res=requests.get('http://economia.awesomeapi.com.br/json/last/USD-BRL')
