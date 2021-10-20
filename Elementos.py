@@ -7,7 +7,8 @@ from time import *
 
 def cotação():
     '''
-    -A função
+    -A função cotação é responsavel por request da cotação atual do dolar, que está em json
+    -Após formatado para float é retornado "cotação_dolar" para uso.
     '''
     while True:
         res=requests.get('http://economia.awesomeapi.com.br/json/last/USD-BRL')

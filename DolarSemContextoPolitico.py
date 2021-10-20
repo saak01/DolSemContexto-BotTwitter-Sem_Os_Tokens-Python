@@ -64,5 +64,5 @@ def main():
                 except:
                     pass 
 
-#chamado da função main
+#chamada da função main
 main()
