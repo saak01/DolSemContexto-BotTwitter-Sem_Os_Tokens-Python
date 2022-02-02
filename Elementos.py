@@ -5,37 +5,37 @@ import requests
 from requests.models import parse_url
 from time import *
 
-def cotação():
-    '''
-    -A função que retorna a cotação atual do dólar e muda o tipo de dado de string para float. 
-    -Request faz a requisão para a url definida que entrega um json.
-    
-    return: Retorna "cotação_dolar" valor da atua cotação do dólar formatado em float.
-    '''
+def dolar():
+    """-A função dolar, obtem por meio de um request em uma api a cotação atual do dólar e mantem o valor da cotação sempre atual por meio de um loop infinito.A obtenção deste dado é feita pelo método get, o atributo é trabalhado(formatação) e é retornado cotação do dólar para uso. """
     while True:
         res=requests.get('http://economia.awesomeapi.com.br/json/last/USD-BRL')
         resc=res.json()
-        cotação_dolar = resc["USDBRL"]["bid"]
-        cotação_dolar=float(cotação_dolar)
-        cotação_dolar=f'{cotação_dolar:.2f}'
-        return cotação_dolar
+        dolar = resc["USDBRL"]["bid"]
+        dolar = round(float(dolar),2)
+        dolar = f'{dolar:.2f}'
+        return dolar
+        
 
-def variação():
+def variacao():
+    """-De uma forma semelhante a função dolar(), é feito request, mas ao inves de obter a cotação é obtido a variação """
     while True:
         res=requests.get('http://economia.awesomeapi.com.br/json/last/USD-BRL')
         resc=res.json()
-        cotação_dolarv = resc["USDBRL"]["varBid"]
-        return cotação_dolarv
+        vari = resc["USDBRL"]["varBid"]
+        vari = round(float(vari),2)
+        return vari
+
 
 def datas():
+    """A função datas(), tem com objetivo obtenção do horário(horas/minutos) local por meio da biblioteca datetime e é retornado para uso."""   
     from datetime import datetime
-    
     hor=datetime.now().strftime('%H:%M')
     return hor
 
+
 def pausa():
-    from datetime import datetime
-    
+    """A função pausa() usa a biblioteca datetime para obter o dia da semana e o hórario, sua finalidade no código é pausar o script quando for final de semana e após o horário das 19."""
+    from datetime import datetime    
     hor=datetime.now().strftime('%H')
     hor=int(hor)
     semana=datetime.today().weekday()
