@@ -18,11 +18,15 @@ def main():
     while True:
         if semana != 5 and semana != 6:
             if limitehor > 8 and limitehor < 19:
-                try:
-                    while True:
+                
+                while True:
+                    try:
                         horario=datas()
                         dol=dolar()
-                        dol_formatado = str(dol)                            
+                        dol=float(dol)
+                        dol = f'{dol:.2f}' 
+                        dol_formatado = str(dol)   
+                        dol=float(dol)        
                         if dol > atual:                           
                             api.update_status(f'''Dólar subiu: R$ {dol_formatado.replace(".",",")} / {horario}
                                     :(''')
@@ -38,8 +42,13 @@ def main():
                             #pass foi usado para não ocorrer um tipo de flood com o mesmo valor do dolar
                             pass   
                         sleep(60*20)
-                except:
-                    pass 
+                    
+                    except ValueError as err:
+                        print(f'Ocorreu um Value Error:{err} ')
+                        break
+                    except TypeError as err:
+                        print(f'Ocorreu um TypeError: {err}')
+                        break
 
 
 if __name__ == "__main__":
