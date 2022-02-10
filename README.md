@@ -2,4 +2,4 @@ O bot tem a tarefa de cada 20 minutos se tiver uma mudança na cotação do dól
 
 Print do funcionamento do bot na timeline do twitter: https://prnt.sc/1qgv3d4
 
-Conta do Bot: @DolarSem
+Conta do Bot: https://twitter.com/DolarSem
